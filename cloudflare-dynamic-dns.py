@@ -29,6 +29,7 @@ def read_config():
         config_data = json.load(f)
 
     CONFIG['sleep_time_minutes'] = config_data['sleep_time_minutes']
+    CONFIG['child_process_timeout'] = config_data['child_process_timeout']
     CONFIG['cf_user_email_address'] = config_data['cf_user_email_address']
     CONFIG['cf_api_token'] = config_data['cf_api_token']
     CONFIG['hostnames'] = config_data['hostnames']
@@ -174,10 +175,12 @@ def main():
         else:
             logging.info('created child process %d' % pid)
 
-            wait_timeout = 30
+            logging.info('allowing child to run for max %d minutes' %
+                         CONFIG['child_process_timeout'])
+
             wait_time = 0
             while True:
-                if wait_time >= wait_timeout:
+                if wait_time >= 60 * CONFIG['child_process_timeout']:
                     logging.info(
                         'killing child process %d due to timeout' % pid)
 

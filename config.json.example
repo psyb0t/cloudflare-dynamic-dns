@@ -1,5 +1,6 @@
 {
   "sleep_time_minutes": 10,
+  "child_process_timeout": 10,
   "cf_user_email_address": "email@address.com",
   "cf_api_token": "your-cf-api-token",
   "hostnames": ["foo.bar.com", "example.org"]
