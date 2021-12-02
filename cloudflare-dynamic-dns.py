@@ -36,7 +36,7 @@ def read_config():
 
 
 def get_public_ip():
-    url = 'http://bot.whatismyipaddress.com'
+    url = 'http://icanhazip.com'
     response = requests.get(url)
 
     if response.status_code != 200:
