@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-pip3 install -r requirements.txt && ./cloudflare-dynamic-dns.py
+venv/bin/pip3 install -r requirements.txt
+venv/bin/python3 cloudflare-dynamic-dns.py
